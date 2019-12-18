@@ -2,18 +2,21 @@
   <div id="app">
     <HelloWorld msg="Gestion des déchets à Nantes"/>
     <Form/>
+
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Form from './components/Form'
+import Description from './components/Description.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
     Form
+    Description
   }
 }
 </script>
