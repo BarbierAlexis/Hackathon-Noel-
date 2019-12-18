@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Gestion des déchets à Nantes"/>
-    <Form/>
-
+    <!-- <Navbar /> -->
+    <Description />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import Navbar from './components/Navbar'
 import Form from './components/Form'
 import Description from './components/Description.vue'
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    // Navbar
+    Description,
     Form
-    Description
   }
 }
 </script>
@@ -28,6 +28,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: #2F4F4F;
-  margin-top: 60px;
 }
 </style>

@@ -2,11 +2,11 @@
 <template>
   <div >
     <div v-if="latitude && longitude">
-      <h1>FORMULAIRE</h1>
+      <Form />
       <Button @click="Return">Return</Button>
     </div>
     <div v-else>
-      <p>Bienvenue</p>
+      <p>Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
       <div class="Cards">
         <div>
           <img alt="Number1" src="../assets/number1.png">
@@ -29,11 +29,16 @@
 </template>
 
 <script>
+import Form from './Form'
+
 export default {
   name: 'Description',
   props: {
     msg: String
   },
+   components: {
+    Form
+  },  
   data() {
     return{
       latitude: null,
@@ -59,6 +64,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  
   .Cards{
     display: flex;
     flex-direction: column;
@@ -66,7 +72,6 @@ export default {
     align-items: center;
   }
   .Cards img{
-    width: ;
     height: 50px;
   }
 
