@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Un pied dans la merde!!!"/>
+    <HelloWorld msg="Gestion des déchets à Nantes"/>
     <Form/>
   </div>
 </template>
@@ -25,7 +24,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: #2F4F4F;
   margin-top: 60px;
 }
 </style>

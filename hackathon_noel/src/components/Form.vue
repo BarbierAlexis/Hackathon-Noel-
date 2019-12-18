@@ -1,7 +1,6 @@
 <template>
   <div>
-
-      <b-form-group id="input-group-2" label="Description:" label-for="input-2">
+      <b-form-group class="description" id="input-group-2" label="Description:" label-for="input-2">
         <b-form-input
           id="input-2"
           v-model="form.description"
@@ -20,12 +19,15 @@
       </b-form-group>
 
       <b-button type="submit" variant="primary">Submit</b-button>
-
   </div>
 </template>
 
 <script>
+ 
   export default {
+    // mounted() {
+    //   console.log('Component Mounted')
+    // }
     data() {
       return {
         form: {
@@ -33,14 +35,18 @@
           dechet: null,
           checked: []
         },
-        dechets: [{ text: 'Select One', value: null }, 'Encombrants', 'Déchets animals', 'Autres'],
+        dechets: [{ text: 'Selectionner', value: null }, 'Encombrants', 'Déjections animales', 'Autres'],
         show: true
       }
     },
     methods: {
       onSubmit(evt) {
-        evt.preventDefault()
-        alert(JSON.stringify(this.form))
+        evt.preventDefault();
+        alert(JSON.stringify(this.form));
+        // this.axios.post(`https://api.twitter.com/DesNantais/`), {
+        //   description: this.description,
+        //   dechet: this.dechet
+        }
       },
       onReset(evt) {
         evt.preventDefault()
@@ -55,5 +61,9 @@
         })
       }
     }
-  }
+
 </script>
+
+<style>
+
+</style>

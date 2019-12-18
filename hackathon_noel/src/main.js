@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
+import axios from 'axios'
 
 Vue.use(BootstrapVue)
+Vue.use(axios)
 
 Vue.config.productionTip = false
 
