@@ -18,7 +18,7 @@
           required
         ></b-form-select>
       </b-form-group></center>
-     <b-button type="submit" variant="primary" @click="onSubmit" >Submit</b-button>
+     <b-button type="submit" variant="primary" @click="Geo" >Submit</b-button>
   </div>
 </template>
 
@@ -29,15 +29,27 @@
         form: {
           description: '',
           dechet: null,
-          checked: []
+          checked: [],
+          latitude: null,
+          longitude: null
         },
         dechets: [{ text: 'Selectionner', value: null }, 'Encombrants', 'Déjections animales', 'Autres'],
         show: true
       }
     },
 
-
     methods: {
+    
+      Geo: function (){
+    navigator.geolocation.getCurrentPosition((success, error, options) =>{
+      return (this.form.latitude = success.coords.latitude,
+      this.form.longitude = success.coords.longitude)
+    })
+    },
+    Return: function (){
+      return (this.form.latitude = null,
+      this.form.longitude = null)
+    },
       onSubmit(evt) {
         evt.preventDefault();
         alert(JSON.stringify(this.form));
