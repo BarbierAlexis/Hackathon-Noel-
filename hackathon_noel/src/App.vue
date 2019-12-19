@@ -3,6 +3,7 @@
     <Navbar />
     <Description />
     <Footer />
+
   </div>
 </template>
 
@@ -11,7 +12,6 @@ import Navbar from './components/Navbar'
 import Form from './components/Form'
 import Description from './components/Description.vue'
 import Footer from './components/Footer'
-
 
 export default {
   name: 'app',

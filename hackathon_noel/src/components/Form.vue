@@ -1,34 +1,30 @@
 <template>
-  <div>
+  <div class="container">
      <h2>FORMULAIRE</h2>
-      <b-form-group class="description" id="input-group-2" label="Description:" label-for="input-2">
+      <center><b-form-group class="input" id="input-group-2" label="Description:" label-for="input-2" max-length="200">
         <b-form-input
           id="input-2"
           v-model="form.description"
           required
           placeholder="Description"
         ></b-form-input>
-      </b-form-group>
+      </b-form-group></center>
 
-      <b-form-group id="input-group-3" label="Déchets:" label-for="input-3" width=50%>
+      <center><b-form-group class="input" id="input-group-3" label="Déchets:" label-for="input-3" width=50%>
         <b-form-select
           id="input-3"
           v-model="form.dechet"
           :options="dechets"
           required
         ></b-form-select>
-      </b-form-group>
-
-      <b-button type="submit" variant="primary">Submit</b-button>
+      </b-form-group></center>
+     <b-button type="submit" variant="primary" @click="onSubmit" >Submit</b-button>
   </div>
 </template>
 
 <script>
  
   export default {
-    // mounted() {
-    //   console.log('Component Mounted')
-    // }
     data() {
       return {
         form: {
@@ -40,15 +36,17 @@
         show: true
       }
     },
+
+
     methods: {
       onSubmit(evt) {
         evt.preventDefault();
         alert(JSON.stringify(this.form));
-        // this.axios.post(`https://api.twitter.com/DesNantais/`), {
-        //   description: this.description,
-        //   dechet: this.dechet
-        }
-      },
+        axios.post('http://localhost:8000/tweet', {
+        description: this.form.description,
+        dechet: this.form.dechets
+      })
+    },
       onReset(evt) {
         evt.preventDefault()
         // Reset our form values
@@ -62,9 +60,11 @@
         })
       }
     }
-
+  }  
 </script>
 
-<style scoped>
- 
+<style>
+.form-group {
+  width: 50%;
+}
 </style>

@@ -3,7 +3,7 @@
   <div >
     <div v-if="latitude && longitude">
       <Form />
-      <b-button pill variant="warning" @click="Return">Retour</b-button>
+      <b-button pill variant="warning" @click="Return"><img alt="Arrow" class="arrow" src="../assets/arrow.png" height="40" width="40"></b-button>
     </div>
     <div v-else>
       <p class="text">Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
