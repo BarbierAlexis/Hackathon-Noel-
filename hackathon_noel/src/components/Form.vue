@@ -1,6 +1,7 @@
 <template>
-  <div>
-     <h2>FORMULAIRE</h2>
+  <div> 
+    <div>
+      <h2>FORMULAIRE</h2>
       <b-form-group class="description" id="input-group-2" label="Description:" label-for="input-2">
         <b-form-input
           id="input-2"
@@ -20,18 +21,27 @@
       </b-form-group>
 
       <b-button type="submit" variant="primary">Submit</b-button>
+    </div>
+    <Camera v-on:takePicture="this.takePicture" />
+    <Gallery />
   </div>
 </template>
-
 <script>
- 
+
+  import Camera from './Camera'
+  import Gallery from './Gallery'
   export default {
+    components: {
+    Camera,
+    Gallery
+    },
     // mounted() {
     //   console.log('Component Mounted')
     // }
     data() {
       return {
         form: {
+          image: null,
           description: '',
           dechet: null,
           checked: []
@@ -41,6 +51,16 @@
       }
     },
     methods: {
+      takePicture () {
+        let ratio = (window.innerHeight > window.innerWidth) ? 16 / 9 : 9 /16;
+        const picture = document.querySelector("canvas");
+        const ctx = picture.getContext("2d");
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(document.querySelector("video"),0,0, picture.width, picture.height)
+        this.form.image = picture
+        console.log(this.form.image)
+      },
       onSubmit(evt) {
         evt.preventDefault();
         alert(JSON.stringify(this.form));
