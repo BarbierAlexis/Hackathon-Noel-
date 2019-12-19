@@ -23,7 +23,6 @@
 </template>
 
 <script>
- 
   export default {
     data() {
       return {
@@ -42,10 +41,15 @@
       onSubmit(evt) {
         evt.preventDefault();
         alert(JSON.stringify(this.form));
-        axios.post('http://localhost:8000/tweet', {
-        description: this.form.description,
-        dechet: this.form.dechets
-      })
+        axios.post('http://localhost:8000/tweet/', {
+          description: this.form.description,
+          dechet: this.form.dechet
+        }).then((response) => {
+          console.log(response);
+        }).catch(err => {
+          console.error(err);
+        })
+      console.log(this.form.description)
     },
       onReset(evt) {
         evt.preventDefault()
