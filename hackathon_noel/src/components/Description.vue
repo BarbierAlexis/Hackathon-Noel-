@@ -10,15 +10,15 @@
       <div class="Cards">
         <div class="Card">
           <img alt="Number1" src="../assets/number1.png">
-          <p>Appuie sur le bouton "Démarrer" </p>
+          <p class="paragraphe">Appuie sur le bouton "Démarrer" </p>
         </div>
         <div class="Card">
           <img alt="Number2" src="../assets/number2.png">
-          <p>Remplis le formulaire et prends ta photo</p>
+          <p class="paragraphe">Remplis le formulaire et prends ta photo</p>
         </div>
         <div class="Card">
           <img alt="Number3" src="../assets/number3.png">
-          <p>Envoie le tout ! </p>
+          <p class="paragraphe">Envoie le tout ! </p>
         </div>
       </div>
       <div>
@@ -75,7 +75,7 @@ export default {
     justify-content: center;
     align-items: center;
     color:#62828E;
-    font-size: 1em;
+    font-size: 1.5em;
   }
   .Card img{
     height: 70px;
@@ -84,13 +84,15 @@ export default {
   .Card{
     margin: 15px;
   }
-
   .btn{
     margin: 15px;
   }
   .text{
     background-color:#2293bb;
     font-size: 1.5em;
+  }
+  .p{
+    font-weight: 2em;
   }
 
 </style>

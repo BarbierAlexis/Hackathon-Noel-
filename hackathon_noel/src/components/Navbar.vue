@@ -11,7 +11,6 @@
 <style scoped>
 .navbar {
   justify-content:center;
-  
 }
 .title {
   font-size:3.5em;
