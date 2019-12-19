@@ -2,6 +2,7 @@
   <div id="app">
     <Navbar />
     <Description />
+    <Footer />
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 import Navbar from './components/Navbar'
 import Form from './components/Form'
 import Description from './components/Description.vue'
+import Footer from './components/Footer'
 
 
 export default {
@@ -16,7 +18,8 @@ export default {
   components: {
     Navbar,
     Description,
-    Form
+    Form,
+    Footer
   }
 }
 </script>
@@ -27,6 +30,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #2F4F4F;
+  background-color: #122A2B;
 }
 </style>

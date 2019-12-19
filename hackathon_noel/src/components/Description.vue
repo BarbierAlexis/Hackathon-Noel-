@@ -5,20 +5,20 @@
       <Form />
       <Button @click="Return">Return</Button>
     </div>
-    <div v-else>
-      <p>Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
+    <div v-else >
+      <p class="description">Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
       <div class="Cards">
         <div>
           <img alt="Number1" src="../assets/number1.png">
-          <p>Blabla</p>
+          <p>Appuie sur le bouton "Démarrer" </p>
         </div>
         <div>
           <img alt="Number2" src="../assets/number2.png">
-          <p>Blabla</p>
+          <p>Remplis le formulaire et prends ta photo</p>
         </div>
         <div>
           <img alt="Number3" src="../assets/number3.png">
-          <p>Blabla</p>
+          <p>Envoie le tout ! </p>
         </div>
       </div>
       <div>
@@ -64,12 +64,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  
+  .description {
+    color:#62828E;
+    font-size: 1.5em;
+  }
   .Cards{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:#62828E;
+    font-size: 1em;
   }
   .Cards img{
     height: 50px;
