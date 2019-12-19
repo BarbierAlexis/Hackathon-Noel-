@@ -3,26 +3,26 @@
   <div >
     <div v-if="latitude && longitude">
       <Form />
-      <Button @click="Return">Return</Button>
+      <b-button pill variant="warning" @click="Return">Retour</b-button>
     </div>
-    <div v-else >
-      <p class="description">Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
+    <div v-else>
+      <p class="text">Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
       <div class="Cards">
-        <div>
+        <div class="Card">
           <img alt="Number1" src="../assets/number1.png">
           <p>Appuie sur le bouton "Démarrer" </p>
         </div>
-        <div>
+        <div class="Card">
           <img alt="Number2" src="../assets/number2.png">
           <p>Remplis le formulaire et prends ta photo</p>
         </div>
-        <div>
+        <div class="Card">
           <img alt="Number3" src="../assets/number3.png">
           <p>Envoie le tout ! </p>
         </div>
       </div>
       <div>
-      <b-button pill variant="outline-primary" @click="Geo">Démarrer</b-button>
+      <b-button class="btn" pill variant="warning" @click="Geo">Démarrer</b-button>
       </div>
     </div>
   </div>
@@ -30,6 +30,10 @@
 
 <script>
 import Form from './Form'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faUserSecret)
 
 export default {
   name: 'Description',
@@ -64,10 +68,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .description {
-    color:#62828E;
-    font-size: 1.5em;
-  }
+
   .Cards{
     display: flex;
     flex-direction: column;
@@ -76,8 +77,20 @@ export default {
     color:#62828E;
     font-size: 1em;
   }
-  .Cards img{
-    height: 50px;
+  .Card img{
+    height: 70px;
+    margin-bottom: 10px;
+  }
+  .Card{
+    margin: 15px;
+  }
+
+  .btn{
+    margin: 15px;
+  }
+  .text{
+    background-color:#2293bb;
+    font-size: 1.5em;
   }
 
 </style>
