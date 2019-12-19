@@ -3,26 +3,26 @@
   <div >
     <div v-if="latitude && longitude">
       <Form />
-      <Button @click="Return">Return</Button>
+      <b-button pill variant="warning" @click="Return">Retour</b-button>
     </div>
     <div v-else>
-      <p>Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
+      <p class="text">Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
       <div class="Cards">
-        <div>
+        <div class="Card">
           <img alt="Number1" src="../assets/number1.png">
           <p>Blabla</p>
         </div>
-        <div>
+        <div class="Card">
           <img alt="Number2" src="../assets/number2.png">
           <p>Blabla</p>
         </div>
-        <div>
+        <div class="Card">
           <img alt="Number3" src="../assets/number3.png">
           <p>Blabla</p>
         </div>
       </div>
       <div>
-      <b-button pill variant="outline-primary" @click="Geo">Démarrer</b-button>
+      <b-button class="btn" pill variant="warning" @click="Geo">Démarrer</b-button>
       </div>
     </div>
   </div>
@@ -30,6 +30,10 @@
 
 <script>
 import Form from './Form'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faUserSecret)
 
 export default {
   name: 'Description',
@@ -71,8 +75,19 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  .Cards img{
-    height: 50px;
+  .Card img{
+    height: 70px;
+    margin-bottom: 10px;
+  }
+  .Card{
+    margin: 15px;
+  }
+
+  .btn{
+    margin: 15px;
+  }
+  .text{
+    background-color:#2293bb;
   }
 
 </style>
