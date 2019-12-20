@@ -1,12 +1,15 @@
 
 <template>
-  <div >
+  <div>
     <div v-if="latitude && longitude">
       <Form />
       <b-button pill variant="warning" @click="Return"><img alt="Arrow" class="arrow" src="../assets/arrow.png" height="40" width="40"></b-button>
     </div>
     <div v-else>
-      <p class="text">Bienvenue sur l'application "Un pied dans la merde", cette application vous permet de géolocaliser les déchets que vous croiser sur la ville de Nantes </p>
+      <div class="center-text">
+        <p class="text">Bienvenue sur l'application <i><b>Un pied dans la merde</b></i>!<br> Cette application te permet de géolocaliser les déchets que tu croises dans les rues de la ville de <b>Nantes.</b><br>L'envoi de ton formulaire génère automatiquement un Tweet qui permettra à la <b>#VilledeNantes</b> d'intervenir.</p>
+      </div>
+      
       <div class="Cards">
         <div class="Card">
           <img alt="Number1" src="../assets/number1.png">
@@ -22,7 +25,7 @@
         </div>
       </div>
       <div>
-      <b-button class="btn" pill variant="warning" @click="Geo">Démarrer</b-button>
+      <b-button class="btn" pill variant="warning" @click="Geo"><b>Démarrer</b></b-button>
       </div>
     </div>
   </div>
@@ -46,6 +49,7 @@ export default {
     
   },
   methods: {
+
       Geo: function (){
     navigator.geolocation.getCurrentPosition((success, error, options) =>{
       return (this.latitude = success.coords.latitude,
@@ -70,7 +74,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color:#62828E;
+    color:rgb(255, 255, 255);
     font-size: 1.5em;
   }
   .Card img{
@@ -84,11 +88,22 @@ export default {
     margin: 15px;
   }
   .text{
-    background-color:#2293bb;
     font-size: 1.5em;
+    color: black;
+    width: 80%;
+    margin-top: 16px;
   }
   .p{
     font-weight: 2em;
   }
+  .center-text {
+
+    background-color:#ffc107;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+
 
 </style>

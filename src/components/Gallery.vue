@@ -13,8 +13,6 @@ export default {
 <style scoped>
   .picture {
     display: block;
-    width: 100vw;
-    height: 100vh;
     padding: 25px;
     box-sizing: border-box;
   }

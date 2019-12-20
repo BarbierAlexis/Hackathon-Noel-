@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="camera-block">
     <video autoplay class="feed"></video>
-    <button @click="$emit('takePicture')" class="snap">SNAP</button>
+    <button @click="$emit('takePicture')" class="snap"><img src="@/assets/photo.png" alt="twitter_logo" heigt="45" width="45"></button>
   </div>
 </template>
 
@@ -31,7 +31,10 @@ export default {
   .camera{
     width: 100vw;
     height: 100vh;
-    
+  }
+
+  .camera-block{
+    margin-top: 30px;
   }
 
   .feed{
@@ -47,7 +50,8 @@ export default {
     height: 75px;
     border-radius: 50%;
     background-color: #ffc107;
-    border: 3px solid black;
+    border: 0.1px solid black;
     outline: none;
+    margin-top: 30px;
    }
 </style>

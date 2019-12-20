@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>FORMULAIRE</h2>
+    <hr>
     <center><b-form-group class="input" id="input-group-2" label="Description:" label-for="input-2" max-length="200">
       <b-form-input
         id="input-2"
@@ -17,9 +17,14 @@
         required
       ></b-form-select>
     </b-form-group></center>
-    <b-button type="submit" variant="primary" @click="Geo" >Submit</b-button>
+    <b-button type="submit" variant="primary" @click="onSubmit" >Envoyer</b-button>
     <Camera v-on:takePicture="this.takePicture" />
     <Gallery />
+    <hr>
+    <p v-if="this.form.temperature"><b>Il fait {{this.form.temperature}}°C à Nantes</b></p>
+    <p v-else></p>
+    <b-button variant="primary" @click="Meteo" >Temperature</b-button>
+    <hr>
   </div>
 </template>
 <script>
@@ -44,7 +49,8 @@
           dechet: null,
           checked: [],
           latitude: null,
-          longitude: null
+          longitude: null,
+          temperature: null
         },
         dechets: [{ text: 'Selectionner', value: null }, 'Encombrants', 'Déjections animales', 'Autres'],
         show: true
@@ -52,6 +58,13 @@
     },
 
     methods: {
+
+      Meteo:function (){
+      axios('http://localhost:8090/weather')
+      .then((response) => {
+        return this.form.temperature =response.data.observations.location[0].observation[0].temperature;
+      })
+    },
     
       Geo: function (){
     navigator.geolocation.getCurrentPosition((success, error, options) =>{
@@ -75,12 +88,14 @@
         console.log(this.form.image)
       },
 
-      onSubmit(evt) {
+      async onSubmit(evt) {
         evt.preventDefault();
-        alert(JSON.stringify(this.form));
-        axios.post('http://localhost:8000/tweet/', {
+        await this.Geo();
+        axios.post('http://localhost:8090/tweet/', {
           description: this.form.description,
-          dechet: this.form.dechet
+          dechet: this.form.dechet,
+          latitude: this.form.latitude,
+          longitude: this.form.longitude
         }).then((response) => {
           console.log(response);
         }).catch(err => {
@@ -105,6 +120,12 @@
 </script>
 
 <style>
+hr {
+  background-color: #ffc201;
+}
+.container {
+  margin-top: 50px;
+}
 .form-group {
   width: 50%;
 }

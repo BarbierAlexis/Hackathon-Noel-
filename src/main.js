@@ -3,8 +3,9 @@ import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
+let cors = require('cors')
 
-
+Vue.use(cors)
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
 import 'bootstrap'

@@ -3,7 +3,6 @@
     <Navbar />
     <Description />
     <Footer />
-
   </div>
 </template>
 
